@@ -1,0 +1,16 @@
+{
+    "name": "rman2/currency_exchange",
+    "description": "currency_exchange",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "h0gard"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^3.8",
+        "guzzlehttp/guzzle": "8.0.x-dev"
+    },
+    "minimum-stability": "dev"
+}
