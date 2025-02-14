@@ -10,31 +10,43 @@ body {
     background-color: #f0f0f0;
 }
 
+/* Убираем стрелки у input[type="number"] */
+input[type="number"] {
+    -moz-appearance: textfield; /* Для Firefox */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Для Chrome, Safari, Edge */
+    margin: 0;
+}
+
 /* Основной контейнер конвертера */
 .container {
-    max-width: 1000px; /* увеличенная максимальная ширина */
+    max-width: 1000px;
     width: 100%;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 40px; /* увеличенные внутренние отступы */
+    padding: 40px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Блок конвертера с двумя мини-блоками и местом для кнопки переключения */
 .converter-block {
     display: flex;
-    gap: 20px; /* расстояние между mini-block */
-    position: relative; /* для позиционирования кнопки-свайпера, если понадобится */
+    gap: 20px;
+    position: relative;
 }
 
-/* Мини-блоки (левый и правый) */
+/* Обязательно, чтобы мини-блок позиционировался относительно */
 .mini-block {
     flex: 1;
-    background-color: #fafafa; /* чуть белее, чтобы выделялось */
+    background-color: #fafafa;
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 15px;
+    position: relative;
 }
 
 /* Секция кнопок валют */
@@ -62,6 +74,20 @@ body {
     margin-right: 0;
 }
 
+/* Стили для кнопки‑тогглера (в ней по умолчанию иконка) */
+.currency-buttons .dropdown-toggle {
+    flex: 0 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 0;
+}
+
 /* Активная кнопка выделяется зеленым */
 .currency-buttons button.active {
     background-color: #4caf50;
@@ -76,7 +102,7 @@ body {
 
 /* Обертка для инпута */
 .input-wrapper {
-    padding: 0 10px; /* отступы, соответствующие кнопкам */
+    padding: 0;
     text-align: center;
 }
 
@@ -127,3 +153,44 @@ body {
     font-size: 18px;
     color: #333;
 }
+
+/* Выпадающее окно (большое меню) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100px; /* Опущено ниже, чтобы не перекрывать кнопки */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 20;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+}
+
+/* При открытии окно выводится в виде сетки с 5 столбцами */
+.dropdown-menu.open {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 10px;
+}
+
+/* Стили для кнопок внутри выпадающего окна */
+.dropdown-menu button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background: #fff;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none; /* рамки убраны */
+}
+
+
+/* Эффект при наведении для кнопок в dropdown */
+.dropdown-menu button:hover {
+    background-color: #e6e6e6;
+}
+

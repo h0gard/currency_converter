@@ -19,7 +19,7 @@ $log->pushHandler(new StreamHandler('app.log', Logger::WARNING));
 use GuzzleHttp\Client;
 
 $cacheFile = 'cache.json'; // Файл для кэша
-$cacheTime = 86400; // 1 день (86400 секунд)
+$cacheTime = 43200; // 1 день (86400 секунд)
 
 if (file_exists($cacheFile) && (time() - filemtime($cacheFile)) < $cacheTime) {
     // Читаем данные из кэша
