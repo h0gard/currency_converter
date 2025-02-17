@@ -1,0 +1,8 @@
+services:
+  currency_converter:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - "C:/Program Files/Ampps/www/projects/currency_exchange:/var/www/html"
+    container_name: currency_converter
